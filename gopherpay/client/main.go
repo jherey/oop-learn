@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	credit := payment.CreditCardAccount(
+	credit := payment.CreateCreditCardAccount(
 		"Jeremiah Olufayo",
 		"1111-2222-3333-4444",
 		2,
@@ -25,4 +25,21 @@ func main() {
 		fmt.Printf("That didn't work: %v\n", err)
 	}
 	fmt.Printf("Available credit: %v\n", credit.AvailableCredit())
+
+	// Interfaces
+	var option payment.PaymentOption
+
+	option = payment.CreateCreditCardAccount(
+		"Jeremiah Olufayo",
+		"1111-2222-3333-4444",
+		2,
+		2025,
+		1234,
+	)
+
+	option.ProcessPayment(500)
+
+	option = payment.CreateCashAccount()
+
+	option.ProcessPayment(500)
 }

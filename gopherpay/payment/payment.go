@@ -2,9 +2,15 @@ package payment
 
 import (
 	"errors"
+	"fmt"
 	"regexp"
 	"time"
 )
+
+// PaymentOption interface
+type PaymentOption interface {
+	ProcessPayment(float32) bool
+}
 
 // CreditCard data structure
 type CreditCard struct {
@@ -16,8 +22,8 @@ type CreditCard struct {
 	availableCredit float32
 }
 
-// CreditCardAccount constructor function to create a CreditCard
-func CreditCardAccount(ownerName, cardNumber string, expirationMonth, expirationYear, securityCode int) *CreditCard {
+// CreateCreditCardAccount constructor function to create a CreditCard
+func CreateCreditCardAccount(ownerName, cardNumber string, expirationMonth, expirationYear, securityCode int) *CreditCard {
 	return &CreditCard{
 		ownerName:       ownerName,
 		cardNumber:      cardNumber,
@@ -25,6 +31,12 @@ func CreditCardAccount(ownerName, cardNumber string, expirationMonth, expiration
 		expirationYear:  expirationYear,
 		securityCode:    securityCode,
 	}
+}
+
+// ProcessPayment processes payment
+func (c *CreditCard) ProcessPayment(amount float32) bool {
+	fmt.Println("Processing a credit card payment...")
+	return true
 }
 
 // OwnerName retuns an account's owner's name
