@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/jherey/oop-learn/gopherpay/payment"
+	"github.com/jherey/oop-learn/gopherpay/encapsulation/payment"
 )
 
 func main() {
