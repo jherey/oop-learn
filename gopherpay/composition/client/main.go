@@ -17,13 +17,13 @@ func (a *Account) ProcessPayment(amount float32) bool {
 	return true
 }
 
-// CreditAccount data type
-type CreditAccount struct {
+// CreditAccountType data type
+type CreditAccountType struct {
 	Account
 }
 
 func main() {
-	ca := &CreditAccount{}
+	ca := &CreditAccountType{}
 	ca.AvailableFunds()
 	ca.ProcessPayment(500)
 }
