@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jherey/oop-learn/gopherpay/encapsulation/payment"
+	"github.com/jherey/oop-learn/gopherpay/encapsulation/paybroker"
 )
 
 func main() {
@@ -40,6 +41,11 @@ func main() {
 	option.ProcessPayment(500)
 
 	option = payment.CreateCashAccount()
+
+	option.ProcessPayment(500)
+
+	// Polymorphism
+	option = &paybroker.PaymentBrokerAccount{}
 
 	option.ProcessPayment(500)
 }
